@@ -358,9 +358,6 @@ font-size: 18px;
 
 /*Responsiveness*/
 @media only screen and (max-width: 667px){
-    #mini-circle{
-        display: none;
-    }
     #nav{
         width: 100%;
         padding: 20px 20px;
@@ -457,7 +454,7 @@ font-size: 18px;
      #hero-footer{
         padding: 0 20px;
         gap:100px;
-        margin-top: 100%;
+        margin-top: 70%;
      }
      #hero-footer a{
         font-size: 12px;
