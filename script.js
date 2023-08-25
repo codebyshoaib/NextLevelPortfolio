@@ -138,20 +138,38 @@ menuExtend();
 function mobilePopup() {
     var menu_trigger = document.querySelector('#menu-trigger');
     var mobile_popup = document.querySelector("#mobile-popup");
-    var menu_close=document.querySelector('#menu-close');
+    var menu_close = document.querySelector('#menu-close');
+
+    function openMobilePopup() {
+        mobile_popup.style.display = 'block';
+        mobile_popup.style.width = '100%';
+        mobile_popup.style.height = '100vh';
+        mobile_popup.classList.add('mobile-popup-active');
+    }
+
+    function closeMobilePopup() {
+        mobile_popup.style.display = 'none';
+        menu_trigger.style.opacity = 1;
+        menu_trigger.style.display = 'block';
+    }
 
     menu_trigger.addEventListener('click', function () {
-        mobile_popup.style.display = 'block';
-        mobile_popup.style.width = '100%'; // Set the width to 80%
-        mobile_popup.style.height='100vh';
-        mobile_popup.classList.add('mobile-popup-active');
+        if (window.innerWidth <= 768) { // Only for screens up to 768px width (example for mobile devices)
+            openMobilePopup();
+        }
     });
-    menu_close.addEventListener('click',function (){
-        mobile_popup.style.display = 'none';
-        menu_trigger.style.opacity=1;
-        menu_trigger.style.display='block';
-    })
+
+    menu_close.addEventListener('click', function () {
+        closeMobilePopup();
+    });
+
+   
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            closeMobilePopup();
+        }
+    });
 }
 
-// Call the function to set up the event listener
+
 mobilePopup();
