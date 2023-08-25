@@ -370,6 +370,7 @@ font-size: 18px;
         display: none ;
     }
     .mobile-popup-active{
+        overflow:hidden;
         top: 0;
         left: 0;
         position: fixed;
