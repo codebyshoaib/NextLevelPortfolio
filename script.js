@@ -8,27 +8,27 @@ const scroll = new LocomotiveScroll({
 
 function firsPageAnim(){
     var tl=gsap.timeline();
-
+    tl.delay(1);
     tl.from("#nav", {
         y:'-10',
         opacity: 0,
         duration:1.5,
         ease:Expo.easeInOut
     })
-        .to(".boundingelem", {
+    .to(".boundingelem", {
             y:0,
             duration:2,
             delay:-1,
             ease:Expo.easeInOut,
             stagger:.2
-        })
-            .from("#hero-footer", {
+    })
+    .from("#hero-footer", {
                 y:-10,
                 opacity: 0,
                 duration:1.5,
                 delay:-1,
                 ease:Expo.easeInOut
-            })
+    })
 }
 
 var timeout;
@@ -147,51 +147,6 @@ document.querySelectorAll('.elem').forEach(function(elem){
 
 });
 
-// document.querySelectorAll('.elem')
-// .forEach(function(elem){
-//     var rotate = 0;
-//   var diffrot = 0;
-
-//   elem.addEventListener("mouseleave", function (dets) {
-//     gsap.to(elem.querySelector("img"), {
-//       opacity: 0,
-//       ease: Power3,
-//       duration: 0.5,
-//     });
-//     gsap.to(elem.querySelector("h1"),{
-//         opacity:.5,
-//         ease:Power3,
-//         duration: 0.8,
-//     });
-//   });
-//     elem.addEventListener("mousemove",function(dets){
-
-//         // var diff=dets.clientY - elem.getBoundingClientRect().top;
-//         // diff=diff-diff; //!!!!!to make follower centered
-       
-//         gsap.to(elem.querySelector("h1"),{
-//             opacity:0.2,
-//             ease:Power3,
-//         });
-//         var lft=dets.clientX;
-//         lft=lft-lft/3;
-//         diffrot = dets.clientX - rotate;
-//         rotate = dets.clientX;
-//         gsap.to(elem.querySelector("img"),{
-//             opacity:1,
-//             ease:Power3,
-//             top:0,
-//             left:lft,
-//             right:lft,
-//             rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
-           
-//         });
-        
-//     });
-
-// });
-
-//Extended MEnu
 
 function menuExtend(){
     
@@ -253,7 +208,6 @@ function mobilePopup() {
     });
 }
 
-// Call the function to set up the event listener
 mobilePopup();
 document.addEventListener("click", function () {
     const miniCircle = document.querySelector('#mini-circle');
@@ -271,4 +225,11 @@ document.addEventListener("click", function () {
         miniCircle.style.backgroundColor = ''; 
         miniCircle.style.transition = 'width 1s ease, height 1s ease, background-color 1s ease';
     }, 1000);
+});
+
+window.addEventListener('load', function () {
+    const preloader = document.querySelector('#preloader');
+    setTimeout(function () {
+        preloader.classList.add('hide-preloader');
+    }, 1000); 
 });
